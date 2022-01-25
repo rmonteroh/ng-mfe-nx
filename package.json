@@ -8,6 +8,7 @@
     "start-home-dev": "nx run home:serve:development --port 4201",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
+    "start-dev": "npm run start-home-dev && npm run start-search-dev",
     "build": "nx build",
     "test": "nx test",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"

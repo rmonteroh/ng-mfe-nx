@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { take } from 'rxjs';
+import { ProductApiService } from '../services/product-api.service';
+import { IProduct } from '@ng-microfrontend-mfe/shared'
 
 @Component({
   selector: 'ng-microfrontend-mfe-welcome',
@@ -8,21 +9,19 @@ import { take } from 'rxjs';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-  public productList: any = [];
+  public productList: IProduct[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private productApiService: ProductApiService) { }
 
   public ngOnInit(): void {
     this.getProductsFromApi();
   }
 
   public getProductsFromApi() {
-    return this.http
-      .get('https://fakestoreapi.com/products')
+    this.productApiService.getProductsFromApi()
       .pipe(take(1))
       .subscribe({
-        next: (products) => {
-          console.log(products);
+        next: (products: IProduct[]) => {
           this.productList = products;
         }
       });
