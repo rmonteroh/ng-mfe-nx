@@ -6,11 +6,12 @@
     <h1 class="text-3xl font-bold text-gray-900">Search angular project</h1>
     <div>
       <input
+        #search
         type="text"
         name="price"
         class="w-full pl-7 pr-12 sm:text-sm border-2 font-normal"
         placeholder="Search by name"
-        (keyup.enter)="searchUsers($event)"
+        (keyup.enter)="searchUsers(search.value)"
       />
     </div>
   </div>

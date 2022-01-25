@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { IUser } from '@ng-microfrontend-mfe/shared';
+import { UserApiService } from './services/user-api.service';
 
 @Component({
   selector: 'ng-microfrontend-mfe-root',
@@ -8,23 +9,21 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  public users: any = [];
-  public filteredUsers: any = [];
-  title = 'search';
+  public users: IUser[] = [];
+  public filteredUsers: IUser[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private userApiService: UserApiService) {}
 
   public ngOnInit(): void {
-      this.allUsers();
+    this.allUsers();
   }
 
-  public searchUsers(event: any) {
-    const name = event.target.value;
-    console.log(event);
-    
-    if (name) {
-      this.filteredUsers = this.users.filter((user: any) => user.name.firstname.includes(name));
-      
+  public searchUsers(search: string) {
+    if (search) {
+      this.filteredUsers = this.users.filter((user: IUser) =>
+        user.name.firstname.includes(search)
+      );
+
       return;
     }
 
@@ -32,15 +31,14 @@ export class AppComponent implements OnInit {
   }
 
   public allUsers() {
-    return this.http
-      .get('https://fakestoreapi.com/users')
+    this.userApiService
+      .getUsersFromApi()
       .pipe(take(1))
       .subscribe({
-        next: (users) => {
-          console.log(users);
+        next: (users: IUser[]) => {
           this.users = users;
           this.filteredUsers = this.users;
-        }
+        },
       });
   }
 }
