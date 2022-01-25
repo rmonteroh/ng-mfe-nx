@@ -428,13 +428,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
       }
     </style>
     <div class="wrapper">
-      
       <div class="container">
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome search 👋
+            Welcome home 👋
           </h1>
         </div>
 

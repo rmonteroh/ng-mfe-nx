@@ -1,17 +1,17 @@
 {
-  "root": "apps/search-e2e",
-  "sourceRoot": "apps/search-e2e/src",
+  "root": "apps/home-e2e",
+  "sourceRoot": "apps/home-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/search-e2e/cypress.json",
-        "devServerTarget": "search:serve:development"
+        "cypressConfig": "apps/home-e2e/cypress.json",
+        "devServerTarget": "home:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "search:serve:production"
+          "devServerTarget": "home:serve:production"
         }
       }
     },
@@ -22,13 +22,13 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "apps/search-e2e/**/*.{js,ts}"
+          "apps/home-e2e/**/*.{js,ts}"
         ]
       }
     }
   },
   "tags": [],
   "implicitDependencies": [
-    "search"
+    "home"
   ]
 }

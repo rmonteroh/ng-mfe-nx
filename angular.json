@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "home": "apps/home",
+    "home-e2e": "apps/home-e2e",
     "search": "apps/search",
     "search-e2e": "apps/search-e2e"
   }
