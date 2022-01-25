@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "data": "libs/data",
     "home": "apps/home",
     "home-e2e": "apps/home-e2e",
     "search": "apps/search",

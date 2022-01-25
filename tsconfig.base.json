@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-microfrontend-mfe/data": ["libs/data/src/index.ts"],
       "@ng-microfrontend-mfe/shared": ["libs/shared/src/index.ts"]
     }
   },

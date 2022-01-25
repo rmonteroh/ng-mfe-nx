@@ -4,7 +4,7 @@ import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewContaine
 @Component({
   selector: 'ng-microfrontend-mfe-navbar-host',
   templateUrl: './navbar-host.component.html',
-  styleUrls: ['./navbar-host.component.scss']
+  styleUrls: ['./navbar-host.component.scss'],
 })
 export class NavbarHostComponent implements OnInit {
 
